@@ -112,7 +112,7 @@ const Loginuser = () => {
       <div className={styles.feildset}>
         <input
           type="text"
-          placeholder="Aadhar Number: 111111111111"
+          placeholder="Aadhar Number: 11"
           value={keystroke}
           className={isInvalid ? styles.error : styles.feild}
           onChange={changedevent}
@@ -142,7 +142,7 @@ const Loginuser = () => {
       <div className={styles.feildset}>
         <input
           type="password"
-          placeholder="Password: y3uo7ec1"
+          placeholder="Password: 11"
           value={keystroke3}
           className={isInvalid3 ? styles.error : styles.feild}
           onChange={changedevent3}

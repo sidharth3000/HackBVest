@@ -5,12 +5,9 @@ import img from "../../Image/user.png";
 import Spinner from "../../../Ui/Spinner";
 
 const Donor = (props) => {
-<<<<<<< HEAD
-=======
 
   const [loading, setLoading] = useState(false);
 
->>>>>>> e4a85f3d113f1629b5caa708d300c289f4974b87
   const sendMssg = () => {
 
     setLoading(true);

@@ -127,7 +127,7 @@ const Loginhos = () => {
       <div className={styles.feildset}>
         <input
           type="password"
-          placeholder="Password: 0a7s2wpz"
+          placeholder="Password: password"
           value={keystroke3}
           className={isInvalid3 ? styles.error : styles.feild}
           onChange={changedevent3}

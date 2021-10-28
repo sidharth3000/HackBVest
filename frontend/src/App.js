@@ -1,23 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Switch } from "react-router";
+import Loginpage from "./components/Login/Loginpage";
 
+import Routeadmin from "./Routeadmin";
+import Routehos from "./Routehos";
+import Routeuser from "./Routeuser";
+import { useSelector } from "react-redux";
 function App() {
+  const counter = useSelector((state) => state.counter);
+  const name = useSelector((state) => state.name);
+
+  const loginscreen = (
+    <Switch>
+      <Route path="/">
+        <Loginpage />
+      </Route>
+    </Switch>
+  );
+
+  let render = loginscreen;
+
+  if(localStorage.getItem("type") == "hospital"){
+    render = <Routehos></Routehos>
+  }
+
+  else if(localStorage.getItem("type") == "user"){
+    render = <Routeuser />
+  }
+
+  else if(localStorage.getItem("type") == "admin"){
+    render = <Routeadmin />
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Route path="/">
+        <Home />
+      </Route> */}
+
+      {/* <Routehos></Routehos>
+<Routeuser />
+<Routeadmin /> */}
+
+
+      {/* {counter ? (
+        name ? (
+          <Routehos></Routehos>
+        ) : (
+          <Routeuser />
+        )
+      ) : name ? (
+        <Routeadmin />
+      ) : (
+        loginscreen
+      )} */}
+
+      {render}
     </div>
   );
 }

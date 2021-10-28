@@ -25,6 +25,7 @@ const Loginpage = () => {
   const onclickselect2 = () => {
     setBut(false);
     setBut2(false);
+    
   };
   const onclickselect3 = () => {
     setBut(false);
@@ -42,10 +43,7 @@ const Loginpage = () => {
           <div className={styles.imageprofile}>
             <img src={Img1} alt="logo pimage" className={styles.logo} />
             <div className={styles.box}>
-              <div className={styles.do}>
-                DO
-                <div className={styles.do}>Donate</div>
-              </div>
+              <span className={styles.do}>DONatE</span>
             </div>
           </div>
           <div className={styles.fifty}>

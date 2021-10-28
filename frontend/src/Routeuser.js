@@ -9,6 +9,7 @@ import Help from "./components/Main/Help";
 import Footer from "./Footer/Footer";
 import SimpleForm from "./Bot/SimpleForm";
 import Donors from "./components/Donors/Donors";
+import Hospitals from "./components/Hospitals/Hospitals";
 
 const Routeuser = () => {
   return (
@@ -37,6 +38,9 @@ const Routeuser = () => {
         </Route>
         <Route path="/donors" exact>
           <Donors />
+        </Route>
+        <Route path="/hospital_list" exact>
+          <Hospitals/>
         </Route>
 
         <Route path="/*">

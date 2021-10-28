@@ -63,8 +63,6 @@ exports.getHospital = async (req, res, next) => {
     return;
   }
 };
-<<<<<<< HEAD
-=======
 
 exports.getAllPatientData = async (req, res, next) => {
   try {
@@ -78,4 +76,3 @@ exports.getAllPatientData = async (req, res, next) => {
     return;
   }
 };
->>>>>>> 2884297c84263493d6079d27be3b12700968604a

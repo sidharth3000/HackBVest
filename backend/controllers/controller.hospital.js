@@ -63,3 +63,19 @@ exports.getHospital = async (req, res, next) => {
     return;
   }
 };
+<<<<<<< HEAD
+=======
+
+exports.getAllPatientData = async (req, res, next) => {
+  try {
+    let data = await Patient.find();
+    console.log(data);
+    res.status(200).send({ data: data });
+    return;
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({ message: error.message });
+    return;
+  }
+};
+>>>>>>> 2884297c84263493d6079d27be3b12700968604a

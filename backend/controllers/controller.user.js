@@ -77,6 +77,7 @@ exports.login = async (req, res, next) => {
   }
 };
 
+<<<<<<< HEAD
 // exports.uploadReport = async (req, res, next) => {
 //   let file = req.files.file;
 //   console.log(file);
@@ -96,3 +97,24 @@ exports.login = async (req, res, next) => {
 //     }
 //   });
 // };
+=======
+exports.uploadReport = async (req, res, next) => {
+  let file = req.files.file;
+  console.log(file);
+  ipfs.add(file.data, async (err, file) => {
+    console.log(file);
+    if (err) {
+      console.log(err);
+      res.status(400).send({ message: err.message });
+      return;
+    }
+    try {
+      res
+        .status(200)
+        .send({ fileUrl: `https://ipfs.infura.io/ipfs/${file[0].path}` });
+    } catch (error) {
+      res.status(400).send({ message: error.message });
+    }
+  });
+};
+>>>>>>> 2884297c84263493d6079d27be3b12700968604a

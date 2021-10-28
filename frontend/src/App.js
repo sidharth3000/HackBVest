@@ -20,16 +20,12 @@ function App() {
 
   let render = loginscreen;
 
-  if(localStorage.getItem("type") == "hospital"){
-    render = <Routehos></Routehos>
-  }
-
-  else if(localStorage.getItem("type") == "user"){
-    render = <Routeuser />
-  }
-
-  else if(localStorage.getItem("type") == "admin"){
-    render = <Routeadmin />
+  if (localStorage.getItem("type") == "hospital") {
+    render = <Routehos></Routehos>;
+  } else if (localStorage.getItem("type") == "user") {
+    render = <Routeuser />;
+  } else if (localStorage.getItem("type") == "admin") {
+    render = <Routeadmin />;
   }
 
   return (
@@ -41,7 +37,6 @@ function App() {
       {/* <Routehos></Routehos>
 <Routeuser />
 <Routeadmin /> */}
-
 
       {/* {counter ? (
         name ? (

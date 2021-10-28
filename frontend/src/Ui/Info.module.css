@@ -3,7 +3,7 @@
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  padding: 40px 100px;
+  padding: 40px 100px 80px;
   font-family: "Montserrat", sans-serif;
   flex-wrap: wrap;
 }
@@ -145,7 +145,7 @@
 
 @media all and (max-width: 1000px) {
   .box {
-    padding: 40px 60px;
+    padding: 40px 60px 80px;
   }
   .inside,
   .inside2,
@@ -162,6 +162,6 @@
 
 @media all and (max-width: 700px) {
   .box {
-    padding: 30px 5px;
+    padding: 30px 5px 60px;
   }
 }

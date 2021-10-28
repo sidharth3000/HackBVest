@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, Redirect, useHistory } from "react-router-dom";
+
 import styles from "./Header.module.css";
 import img from "../components/Image/dd3.png";
 
@@ -7,6 +8,8 @@ import Modaluser from "./Modaluser";
 import Slide from "react-reveal/Slide";
 import { useSelector, useDispatch } from "react-redux";
 const HeaderUser = () => {
+  const history = useHistory();
+
   const counter = useSelector((state) => state.counter);
   console.log(counter);
   const dispatch = useDispatch();
@@ -25,6 +28,8 @@ const HeaderUser = () => {
 
   const signOutHandler = () => {
     window.location.reload();
+    history.push("/");
+
     localStorage.clear();
   };
   const [small, setSmall] = useState(false);

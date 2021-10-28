@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, Redirect, useHistory } from "react-router-dom";
 import styles from "./Header.module.css";
 import img from "../components/Image/dd3.png";
 import Modal from "./Modal";
 import Slide from "react-reveal/Slide";
 import { useSelector, useDispatch } from "react-redux";
 const Header = () => {
+  const history = useHistory();
   const counter = useSelector((state) => state.counter);
   console.log(counter);
   const dispatch = useDispatch();
@@ -24,8 +25,9 @@ const Header = () => {
   if (location.pathname !== "/hospital/home") header = true;
 
   const signOutHandler = () => {
-    window.location.reload();
     localStorage.clear();
+    history.push("/");
+    window.location.reload();
   };
 
   const [small, setSmall] = useState(false);

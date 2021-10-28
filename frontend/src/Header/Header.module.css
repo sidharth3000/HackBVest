@@ -450,6 +450,7 @@
   margin: 0;
   list-style-type: none;
   background-color: white;
+  box-shadow: 0, 0, 0, 0px 0 2px rgb(71, 71, 71);
 }
 
 .flex2 li {

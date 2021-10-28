@@ -303,6 +303,10 @@
   font-weight: 800;
 }
 
+.info {
+  padding: 50px;
+}
+
 @media screen and (max-width: 1400px) {
   .footwhite .footerul li {
     flex: 50%;

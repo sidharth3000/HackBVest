@@ -114,7 +114,7 @@ const Mainpage = () => {
         </ul>
       </div>
       <h1 className={styles.title}>Further</h1>
-      <Info />
+      <Info className={styles.info} />
     </div>
   );
 };

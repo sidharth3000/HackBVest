@@ -80,7 +80,7 @@ const Loginhos = () => {
     console.log(data);
 
     axios
-      .post("https://dodonate-backend.herokuapp.com/hospital/login", data)
+      .post("https://dodonate-reboot.herokuapp.com/hospital/login", data)
       .then((res) => {
         console.log(res.data.hospitalId);
         localStorage.setItem("hospitalId", res.data.hospitalId);

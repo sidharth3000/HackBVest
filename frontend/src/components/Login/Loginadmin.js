@@ -81,7 +81,7 @@ const Loginadmin = () => {
     console.log(data);
 
     axios
-      .post("https://dodonate-backend.herokuapp.com/admin/login", data)
+      .post("https://dodonate-reboot.herokuapp.com/admin/login", data)
       .then((res) => {
         console.log(res);
         dispatch({ type: "loginadmin" });

@@ -1,7 +1,9 @@
 const User = require("../models/model.user");
 const accountSid = process.env.accountSid;
 const authToken = process.env.authToken;
+
 const client = require("twilio")(accountSid, authToken);
+
 const ipfsAPI = require("ipfs-api");
 const ipfs = ipfsAPI("ipfs.infura.io", "5001", { protocol: "https" });
 const jwt = require("jsonwebtoken");
@@ -77,27 +79,6 @@ exports.login = async (req, res, next) => {
   }
 };
 
-<<<<<<< HEAD
-// exports.uploadReport = async (req, res, next) => {
-//   let file = req.files.file;
-//   console.log(file);
-//   ipfs.add(file.data, async (err, file) => {
-//     console.log(file);
-//     if (err) {
-//       console.log(err);
-//       res.status(400).send({ message: err.message });
-//       return;
-//     }
-//     try {
-//       res
-//         .status(200)
-//         .send({ fileUrl: `https://ipfs.infura.io/ipfs/${file[0].path}` });
-//     } catch (error) {
-//       res.status(400).send({ message: error.message });
-//     }
-//   });
-// };
-=======
 exports.uploadReport = async (req, res, next) => {
   let file = req.files.file;
   console.log(file);
@@ -117,4 +98,17 @@ exports.uploadReport = async (req, res, next) => {
     }
   });
 };
->>>>>>> 2884297c84263493d6079d27be3b12700968604a
+
+exports.getRequestSMS = async (req, res, next) => {
+  try {
+    let response = await client.messages.create({
+      body: `Hi Vijay, there is an emergency blood request from Rahul. Contact him on:- 9254539758, time to be a hero!`,
+      from: process.env.phoneNo,
+      to: "+91" + req.body.phoneNo,
+    });
+    res.status(200).send({ message: response });
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({ message: error.message });
+  }
+};

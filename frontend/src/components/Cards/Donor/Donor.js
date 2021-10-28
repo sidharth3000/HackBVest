@@ -1,7 +1,27 @@
 import React, { useState } from "react";
-
+import axios from 'axios'
 
 const Donor = (props) => {
+
+  const sendMssg = () => {
+    console.log("...");
+
+    let data = {
+      phoneNo: "8810559109"
+    }
+
+    axios
+    .post("https://dodonate-reboot.herokuapp.com/user/getRequestSMS", data)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+  }
+
+  
   return (
     <div >
         {props.name}
@@ -9,7 +29,7 @@ const Donor = (props) => {
         {props.state}
         {props.number}
 
-        <button>REQUEST</button>
+        <button onClick={sendMssg}>REQUEST</button>
     </div>
   );
 };

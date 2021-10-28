@@ -8,11 +8,6 @@ import axios from 'axios';
 
 const Donors = (props) => {
 
-    // const [name, setName] = useState([]);
-    // const [city, setCity] = useState([]);
-    // const [state, setState] = useState([]);
-    // const [mobiles, setMobiles] = useState([]);
-
     const [donors, setDonors] = useState([]);
 
 
@@ -84,11 +79,6 @@ const Donors = (props) => {
             numbers.push(number);
         }
 
-        // setName(names);
-        // setCity(cities);
-        // setState(states);
-        // setMobiles(numbers);
-
         let temp = [];
 
         for (let i = 0; i < addresses.length; i++) {
@@ -123,7 +113,6 @@ const Donors = (props) => {
           ))}
         </div>
     );
-
 
   const s1 = props.aadhar;
   const s = props.date;

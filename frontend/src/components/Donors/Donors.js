@@ -82,11 +82,6 @@ const Donors = (props) => {
           numbers.push(number);
         }
 
-        // setName(names);
-        // setCity(cities);
-        // setState(states);
-        // setMobiles(numbers);
-
         let temp = [];
 
         for (let i = 0; i < addresses.length; i++) {
@@ -104,21 +99,24 @@ const Donors = (props) => {
       })
       .catch((err) => {
         console.log(err.message);
-      });
-  }, []);
 
-  let donorsArray = (
-    <div>
-      {donors.map((d) => (
-        <DonorCard
-          name={d.name}
-          city={d.city}
-          state={d.state}
-          number={d.number}
-        />
-      ))}
-    </div>
-  );
+        });
+
+    }, []);
+
+    
+    let donorsArray = (
+        <div>
+          {donors.map((d) => (
+            <DonorCard
+              name={d.name}
+              city={d.city}
+              state={d.state}
+              number={d.number}
+            />
+          ))}
+        </div>
+    );
 
   const s1 = props.aadhar;
   const s = props.date;

@@ -15,7 +15,7 @@ const UserHospitals = () => {
 
     setLoading(true);
 
-    let url = `https://dodonate-backend.herokuapp.com/hospital/getHospital`;
+    let url = `https://dodonate-reboot.herokuapp.com/hospital/getHospital`;
     console.log(url);
 
     axios

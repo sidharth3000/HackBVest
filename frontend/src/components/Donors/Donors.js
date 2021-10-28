@@ -26,7 +26,6 @@ const Donors = (props) => {
       .get("https://dodonate-reboot.herokuapp.com/hospital/getAllPatientData")
       .then(async (res) => {
         console.log(res.data);
-        setLoading(false);
 
         res.data.data.map((donor) => {
           aadhaars.push(donor.aadharNo);
@@ -96,6 +95,8 @@ const Donors = (props) => {
         }
 
         setDonors(temp);
+
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err.message);

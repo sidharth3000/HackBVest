@@ -18,7 +18,7 @@ const List = () => {
   useEffect(async () => {
     setLoading(true);
 
-    let url = `https://dodonate-backend.herokuapp.com/hospital/getPatientData?hospitalId=${localStorage.getItem(
+    let url = `https://dodonate-reboot.herokuapp.com/hospital/getPatientData?hospitalId=${localStorage.getItem(
       "hospitalId"
     )}`;
     console.log(url);

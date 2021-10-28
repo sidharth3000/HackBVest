@@ -62,7 +62,7 @@ const Form = () => {
 
       console.log(data);
 
-      axios.post("https://dodonate-backend.herokuapp.com/user/signup", formData)
+      axios.post("https://dodonate-reboot.herokuapp.com/user/signup", formData)
       .then((res) => {
       console.log(res);
       // dispatch({ type: "loginhos" });

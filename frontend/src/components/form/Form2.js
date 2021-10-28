@@ -50,7 +50,7 @@ const Form2 = () => {
     
         axios
           .post(
-            "https://dodonate-backend.herokuapp.com/hospital/addPatientData",
+            "https://dodonate-reboot.herokuapp.com/hospital/addPatientData",
             data
           )
           .then((res) => {

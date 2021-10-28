@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import axios from 'axios'
 import styles from "./Donor.module.css";
 import img from "../../Image/user.png";
+import Spinner from "../../../Ui/Spinner";
 
 const Donor = (props) => {
 
+  const [loading, setLoading] = useState(false);
+
   const sendMssg = () => {
+
+    setLoading(true);
+
     console.log("...");
 
     let data = {
@@ -26,6 +32,7 @@ const Donor = (props) => {
   
   return (
     <div className={styles.block}>
+      {loading ? <Spinner/> : null}
       <img src={img} alt="user" className={styles.user} />
       <div className={styles.inner}>
         <div className={styles.one}>

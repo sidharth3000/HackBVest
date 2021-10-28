@@ -81,7 +81,7 @@ const HeaderUser = () => {
 
             <li>
               <NavLink
-                to="/donors"
+                to="/search"
                 className={styles.link}
                 activeClassName={styles.active}
               >
@@ -152,7 +152,7 @@ const HeaderUser = () => {
 
               <li>
                 <NavLink
-                  to="/donors"
+                  to="/search"
                   activeClassName={styles.active2}
                   onClick={clickhandler}
                 >

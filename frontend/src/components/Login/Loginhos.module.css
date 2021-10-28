@@ -161,7 +161,10 @@
   .footer ul li a:active {
     font-size: 16px;
   }
-
+  .form {
+    padding: 100px 0 0;
+    flex: 50%;
+  }
   .form a:visited,
   .form a:link,
   .form a:hover,

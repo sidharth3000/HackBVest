@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import styles from "./Header.module.css";
-import Img1 from "../components/Image/giphy.gif";
+import img from "../components/Image/dd3.png";
 import Modal from "./Modal";
 import Slide from "react-reveal/Slide";
 import { useSelector, useDispatch } from "react-redux";
@@ -27,7 +27,7 @@ const Header = () => {
     window.location.reload();
     localStorage.clear();
   };
-  
+
   const [small, setSmall] = useState(false);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -39,20 +39,12 @@ const Header = () => {
 
   return (
     <>
-      {open ? (
-        <Modal fun={clickhandler} />
-      ) : (
+      <React.Fragment>
         <div className={small ? styles.header : styles.header2}>
-          <div className={styles.logo_}>
-            <img
-              src={Img1}
-              alt="Logo"
-              className={small ? styles.nologo : styles.logo}
-            ></img>
-            <p className={styles.logoname}>Do.Donate</p>
+          <div className={styles.name}>
+            <img src={img} alt="Donor" className={styles.img} />
           </div>
-
-          <ul className={styles.ul}>
+          <ul>
             <li>
               <NavLink
                 to="/hospital/home"
@@ -101,17 +93,71 @@ const Header = () => {
                 Signout
               </NavLink>
             </li>
-            {/* */}
           </ul>
+          {/* <div className={styles.role}> {role}</div> */}
+
           <div className={styles.burger} onClick={clickhandler}>
-            <div className={styles.burgerbut}>
-              <div className={styles.lines}></div>
-              <div className={styles.lines}></div>
-              <div className={styles.lines}></div>
-            </div>
+            <div className={open ? styles.lines4 : styles.lines1}></div>
+            <div className={open ? styles.lines5 : styles.lines2}></div>
+            <div className={open ? styles.lines6 : styles.lines3}></div>
           </div>
         </div>
-      )}
+
+        <div className={open ? styles.burgermenuo : styles.burgermenuc}>
+          <div className={open ? styles.menuo : styles.menuc}>
+            <ul className={styles.flex2}>
+              <li>
+                <NavLink
+                  to="/hospital/home"
+                  activeClassName={styles.active2}
+                  onClick={clickhandler}
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/hospital/donate"
+                  activeClassName={styles.active2}
+                  onClick={clickhandler}
+                >
+                  Donate
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/hospital/new"
+                  activeClassName={styles.active2}
+                  onClick={clickhandler}
+                >
+                  New
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/hospital/list"
+                  activeClassName={styles.active2}
+                  onClick={clickhandler}
+                >
+                  List
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/"
+                  activeClassName={styles.active2}
+                  exact
+                  onClick={signOutHandler}
+                >
+                  Signout
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </React.Fragment>
     </>
   );
 };

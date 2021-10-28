@@ -5,11 +5,9 @@ import img from "../../Image/user.png";
 import Spinner from "../../../Ui/Spinner";
 
 const Donor = (props) => {
-
   const [loading, setLoading] = useState(false);
 
   const sendMssg = () => {
-
     setLoading(true);
 
     console.log("...");
@@ -30,7 +28,7 @@ const Donor = (props) => {
 
   return (
     <div className={styles.block}>
-      {loading ? <Spinner/> : null}
+      {loading ? <Spinner /> : null}
       <img src={img} alt="user" className={styles.user} />
       <div className={styles.inner}>
         <div className={styles.one}>

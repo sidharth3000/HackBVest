@@ -10,7 +10,7 @@ import Footer from "./Footer/Footer";
 import SimpleForm from "./Bot/SimpleForm";
 import Donors from "./components/Donors/Donors";
 import Hospitals from "./components/Hospitals/Hospitals";
-
+import Search from "./components/Hospitals/Search";
 const Routeuser = () => {
   return (
     <div>
@@ -18,7 +18,7 @@ const Routeuser = () => {
 
       <HeaderUser />
       <Switch>
-      <Route path="/hospital/*" exact>
+        <Route path="/hospital/*" exact>
           <Redirect to="/home" />
         </Route>
         <Route path="/" exact>
@@ -40,9 +40,11 @@ const Routeuser = () => {
           <Donors />
         </Route>
         <Route path="/hospital_list" exact>
-          <Hospitals/>
+          <Hospitals />
         </Route>
-
+        <Route path="/search" exact>
+          <Search />
+        </Route>
         <Route path="/*">
           <Notfound />
         </Route>

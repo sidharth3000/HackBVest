@@ -4,30 +4,32 @@ import Donor from "../../ethereum/donor";
 import Manager from "../../ethereum/manager";
 import web3 from "../../ethereum/web3";
 import DonorCard from "../Cards/Donor/Donor";
-import axios from 'axios';
-
+import axios from "axios";
+import EachPage from "../../Ui/EachPage";
+import Spinner from "../../Ui/Spinner";
 const Donors = (props) => {
+  // const [name, setName] = useState([]);
+  // const [city, setCity] = useState([]);
+  // const [state, setState] = useState([]);
+  // const [mobiles, setMobiles] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [donors, setDonors] = useState([]);
 
-    // const [name, setName] = useState([]);
-    // const [city, setCity] = useState([]);
-    // const [state, setState] = useState([]);
-    // const [mobiles, setMobiles] = useState([]);
+  useEffect(async () => {
+    setLoading(true);
 
-    const [donors, setDonors] = useState([]);
+    const accounts = await web3.eth.getAccounts();
 
+    let aadhaars = [];
 
-    useEffect(async () => {
-
-        const accounts = await web3.eth.getAccounts();
-
-        let aadhaars = [];
-    
-        await axios.get("https://dodonate-reboot.herokuapp.com/hospital/getAllPatientData")
-        .then(async (res) => {
+    await axios
+      .get("https://dodonate-reboot.herokuapp.com/hospital/getAllPatientData")
+      .then(async (res) => {
         console.log(res.data);
+        setLoading(false);
 
-        res.data.data.map(donor => {
-            aadhaars.push(donor.aadharNo)
+        res.data.data.map((donor) => {
+          aadhaars.push(donor.aadharNo);
         });
 
         console.log(aadhaars);
@@ -35,13 +37,11 @@ const Donors = (props) => {
         let addresses = [];
 
         for (let i = 0; i < aadhaars.length; i++) {
-            let x = await Manager.methods
-            .getDonor(aadhaars[i])
-            .call({
-              from: accounts[0],
-            });
+          let x = await Manager.methods.getDonor(aadhaars[i]).call({
+            from: accounts[0],
+          });
 
-            addresses.push(x);
+          addresses.push(x);
         }
 
         console.log(addresses);
@@ -53,35 +53,33 @@ const Donors = (props) => {
 
         console.log(aadhaars.length);
 
-        addresses.splice(2,1);
+        addresses.splice(2, 1);
 
         for (let i = 0; i < addresses.length; i++) {
+          console.log(addresses[i]);
 
-
-            console.log(addresses[i]);
-       
-             let name = await Donor(addresses[i])
+          let name = await Donor(addresses[i])
             .methods.name()
             .call();
 
-            let city = await Donor(addresses[i])
+          let city = await Donor(addresses[i])
             .methods.city()
             .call();
 
-            let state = await Donor(addresses[i])
+          let state = await Donor(addresses[i])
             .methods.state()
             .call();
 
-            let number = await Donor(addresses[i])
+          let number = await Donor(addresses[i])
             .methods.mobile()
             .call();
 
-            console.log(number);
+          console.log(number);
 
-            names.push(name);
-            cities.push(city);
-            states.push(state);
-            numbers.push(number);
+          names.push(name);
+          cities.push(city);
+          states.push(state);
+          numbers.push(number);
         }
 
         // setName(names);
@@ -92,46 +90,48 @@ const Donors = (props) => {
         let temp = [];
 
         for (let i = 0; i < addresses.length; i++) {
-            let obj = {name: names[i], 
-                        city: cities[i],
-                        state: states[i],
-                        number: numbers[i]}
+          let obj = {
+            name: names[i],
+            city: cities[i],
+            state: states[i],
+            number: numbers[i],
+          };
 
-                        temp.push(obj);
+          temp.push(obj);
         }
 
         setDonors(temp);
-        
-        })
-        .catch((err) => {
+      })
+      .catch((err) => {
         console.log(err.message);
+      });
+  }, []);
 
-        });
-
-    }, []);
-
-    
-    let donorsArray = (
-        <div>
-          {donors.map((d) => (
-            <DonorCard
-              name={d.name}
-              city={d.city}
-              state={d.state}
-              number={d.number}
-            />
-          ))}
-        </div>
-    );
-
+  let donorsArray = (
+    <div>
+      {donors.map((d) => (
+        <DonorCard
+          name={d.name}
+          city={d.city}
+          state={d.state}
+          number={d.number}
+        />
+      ))}
+    </div>
+  );
 
   const s1 = props.aadhar;
   const s = props.date;
   return (
-    <div className={styles.box}>
-        DONORS
+    <EachPage>
+      {loading ? <Spinner /> : null}
+      <div className={styles.box}>
+        <div className={styles.bar}>
+          <p> DONORS</p>
+        </div>
         {donorsArray}
-    </div>
+      </div>
+    </EachPage>
   );
 };
 

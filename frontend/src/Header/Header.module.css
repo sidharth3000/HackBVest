@@ -529,6 +529,12 @@
 }
 /**/
 
+@media all and (max-width: 1250px) {
+  .header ul li,
+  .header2 ul li {
+    padding: 5px;
+  }
+}
 @media all and (max-width: 1000px) {
   .header ul,
   .header2 ul {

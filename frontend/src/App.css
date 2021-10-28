@@ -2,6 +2,7 @@
   min-height: 600px;
   overflow-y: auto;
   overflow-x: hidden;
+  font-family: "Montserrat", sans-serif;
 }
 ::-webkit-scrollbar {
   position: fixed;

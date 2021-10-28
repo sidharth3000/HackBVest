@@ -16,7 +16,6 @@ const List = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(async () => {
-
     setLoading(true);
 
     let url = `https://dodonate-backend.herokuapp.com/hospital/getPatientData?hospitalId=${localStorage.getItem(
@@ -52,7 +51,7 @@ const List = () => {
 
   return (
     <EachPage>
-      {loading ? <Spinner/> : null}
+      {loading ? <Spinner /> : null}
       <div className={styles.box}>
         <div className={styles.bar}>
           <p>Users List</p>

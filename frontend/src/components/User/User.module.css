@@ -4,7 +4,7 @@
   box-shadow: 2px 2px 10px black;
   display: flex;
   flex-wrap: wrap;
-  margin: 0px auto 20px;
+  margin: 0px auto 40px;
   padding-top: 100px;
   min-width: 1070px;
   position: relative;
@@ -87,7 +87,7 @@
   .box {
     min-width: 95%;
     max-width: 100px;
-    margin: 10px 2.5%;
+    margin: 10px 2.5% 30px;
   }
   .bar {
     width: 100%;
@@ -275,4 +275,12 @@
 .an:active {
   background-color: #f3f3f3;
   color: #1b86c4;
+}
+
+@media all and (max-width: 600px) {
+  .an {
+    width: 100%;
+    margin: 15px 0;
+    padding: 5px 10px;
+  }
 }

@@ -78,6 +78,16 @@ const HeaderUser = () => {
                 Hospitals
               </NavLink>
             </li>
+
+            <li>
+              <NavLink
+                to="/donors"
+                className={styles.link}
+                activeClassName={styles.active}
+              >
+                Search
+              </NavLink>
+            </li>
             <li>
               <NavLink
                 to="/help"
@@ -137,6 +147,16 @@ const HeaderUser = () => {
                   onClick={clickhandler}
                 >
                   Hospitals
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/donors"
+                  activeClassName={styles.active2}
+                  onClick={clickhandler}
+                >
+                  Search
                 </NavLink>
               </li>
               <li>

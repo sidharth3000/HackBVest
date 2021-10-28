@@ -3,11 +3,16 @@ import styles from "./Hospitals.module.css";
 import axios from 'axios'
 
 const Hospitals = (props) => {
-
   
   return (
     <div className={styles.box}>
-       Hospital
+
+       <div>Hospital Name</div>
+       <div>
+           <div></div>
+       </div>
+       <div>Hospital Name</div>
+
     </div>
   );
 };
